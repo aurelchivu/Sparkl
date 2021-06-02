@@ -1,0 +1,3 @@
+export const FETCH_GAMES = 'FETCH_GAMES';
+export const FETCH_SEARCHED = 'FETCH_SEARCHED';
+export const CLEAR_SEARCHED = 'CLEAR_SEARCHED';
