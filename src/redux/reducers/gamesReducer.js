@@ -1,10 +1,11 @@
 import {
-  FETCH_GAMES,
+  FETCH_GAMES_SUCCESS,
+  FETCH_GAMES_FAIL,
   // FETCH_SEARCHED,
   // CLEAR_SEARCHED,
 } from '../constants/gamesConstants';
 
-const initialState = { 
+const initialState = {
   popular: [],
   upcoming: [],
   newGames: [],
@@ -13,13 +14,15 @@ const initialState = {
 
 const gamesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_GAMES:
+    case FETCH_GAMES_SUCCESS:
       return {
         ...state,
         popular: action.payload.popular,
         upcoming: action.payload.upcoming,
         newGames: action.payload.newGames,
       };
+    case FETCH_GAMES_FAIL:
+      return { error: action.payload };
     // case FETCH_SEARCHED:
     //   return {
     //     ...state,
