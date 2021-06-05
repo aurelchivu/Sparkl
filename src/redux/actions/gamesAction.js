@@ -9,7 +9,7 @@ import {
   upcomingGamesURL,
   newGamesURL,
   // searchGameURL,
-} from '../../api';
+} from '../../utils/api';
 
 //Action Creator
 export const loadGames = () => async (dispatch) => {
