@@ -1,25 +1,21 @@
-import { LOADING_DETAIL, GET_DETAIL } from '../constants/gamesConstants';
+import { GET_DETAIL, FETCH_DETAILS_FAIL } from '../constants/gamesConstants';
 
 const initialState = {
   game: { platforms: [] },
   screen: { results: [] },
-  isLoading: true,
 };
 
 const detailReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_DETAIL:
-      return { 
+      return {
         ...state,
         game: action.payload.game,
         screen: action.payload.screen,
         isLoading: false,
       };
-    case LOADING_DETAIL:
-      return {
-        ...state,
-        isLoading: true,
-      };
+    case FETCH_DETAILS_FAIL:
+      return { error: action.payload };
     default:
       return { ...state };
   }

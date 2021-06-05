@@ -2,8 +2,6 @@ import axios from 'axios';
 import {
   FETCH_GAMES_SUCCESS,
   FETCH_GAMES_FAIL,
-  // FETCH_SEARCHED,
-  // CLEAR_SEARCHED,
 } from '../constants/gamesConstants';
 
 import {
@@ -32,7 +30,6 @@ export const loadGames = () => async (dispatch) => {
       error.response && error.response.data.message
         ? error.response.data.message
         : error.message;
-    console.log(message);
     dispatch({
       type: FETCH_GAMES_FAIL,
       payload: message,
