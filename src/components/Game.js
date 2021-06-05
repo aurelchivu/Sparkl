@@ -1,11 +1,19 @@
 import React from 'react';
-//Styling and Animation
+// Styling and Animation
 import styled from "styled-components";
 import { motion } from "framer-motion";
+// Redux
+import { useDispatch } from "react-redux";
+import { loadDetail } from "../redux/actions/detailAction";
 
 const Game = ({ name, released, image, id }) => {
+  const dispatch = useDispatch();
+  const loadDetailHandler = () => {
+    // document.body.style.overflow = 'hidden';
+    dispatch(loadDetail(id));
+  };
   return (
-    <StyledGame>
+    <StyledGame onClick={loadDetailHandler}>
       <h3>{name}</h3>
       <p>{released}</p>
       <img src={image} alt={name} />
