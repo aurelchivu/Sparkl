@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { gameDetailsURL, gameScreenshotURL } from '../../api';
 import {
-  LOADING_DETAIL,
   GET_DETAIL,
   FETCH_DETAILS_FAIL,
 } from '../constants/gamesConstants';

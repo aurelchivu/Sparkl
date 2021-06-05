@@ -12,7 +12,6 @@ const detailReducer = (state = initialState, action) => {
         ...state,
         game: action.payload.game,
         screen: action.payload.screen,
-        isLoading: false,
       };
     case FETCH_DETAILS_FAIL:
       return { error: action.payload };

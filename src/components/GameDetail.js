@@ -113,7 +113,7 @@ const Description = styled(motion.div)`
 
 const Gallery = styled(motion.div)`
   img {
-    margin: 0.1rem 0rem;
+    margin-bottom: 0.1rem;
   }
 `;
 
