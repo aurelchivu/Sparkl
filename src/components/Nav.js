@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import logo from '../utils/img/logo.svg';
+import { fadeIn } from '../style/animations';
 // Redux
 import { fetchSearch } from '../redux/actions/gamesAction';
 import { useDispatch } from 'react-redux';
@@ -15,11 +16,12 @@ const Nav = () => {
   const inputHandler = (e) => {
     setTextInput(e.target.value);
   };
-
   const submitSearch = (e) => {
     e.preventDefault();
-    dispatch(fetchSearch(textInput));
-    setTextInput('');
+    if (textInput !== '') {
+      dispatch(fetchSearch(textInput));
+      setTextInput('');
+    }
   };
 
   const clearSearched = () => {
@@ -27,7 +29,7 @@ const Nav = () => {
   };
 
   return (
-    <StyledNav>
+    <StyledNav variants={fadeIn} initial='hidden' animate='show'>
       <Logo onClick={clearSearched}>
         <img src={logo} alt='logo' />
         <h1>Sparkl</h1>

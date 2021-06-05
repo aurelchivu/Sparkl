@@ -1,7 +1,6 @@
 import {
   FETCH_GAMES_SUCCESS,
   FETCH_GAMES_FAIL,
-  LOADING_SEARCHED,
   FETCH_SEARCHED,
   CLEAR_SEARCHED,
 } from '../constants/gamesConstants';
@@ -11,7 +10,6 @@ const initialState = {
   upcoming: [],
   newGames: [],
   searched: [],
-  searchLoading: true,
 };
 
 const gamesReducer = (state = initialState, action) => {
@@ -23,16 +21,10 @@ const gamesReducer = (state = initialState, action) => {
         upcoming: action.payload.upcoming,
         newGames: action.payload.newGames,
       };
-    case LOADING_SEARCHED:
-      return {
-        ...state,
-        searchLoading: true,
-      };
     case FETCH_SEARCHED:
       return {
         ...state,
         searched: action.payload.searched,
-        searchLoading: false,
       };
     case CLEAR_SEARCHED:
       return {

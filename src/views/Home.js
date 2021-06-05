@@ -9,6 +9,7 @@ import GameDetail from '../components/GameDetail';
 // Styling and Animation
 import styled from 'styled-components';
 import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion';
+import { fadeIn } from '../style/animations';
 
 const Home = () => {
   // Get the current location
@@ -19,20 +20,19 @@ const Home = () => {
   useEffect(() => {
     dispatch(loadGames());
   }, [dispatch]);
-  const { popular, newGames, upcoming, searched, searchLoading } = useSelector(
+  const { popular, newGames, upcoming, searched } = useSelector(
     (state) => state.games
   );
 
   return (
-    <GameList>
+    <GameList variants={fadeIn} initial='hidden' animate='show'>
       <AnimateSharedLayout type='crossfade'>
         <AnimatePresence>
           {pathId && <GameDetail pathId={pathId} />}
         </AnimatePresence>
-        {searched.length && !searchLoading ? (
+        {searched.length ? (
           <div className='searched'>
             <h2>Searched Games</h2>
-
             <Games>
               {searched.map((game) => (
                 <Game

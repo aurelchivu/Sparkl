@@ -2,7 +2,6 @@ import axios from 'axios';
 import {
   FETCH_GAMES_SUCCESS,
   FETCH_GAMES_FAIL,
-  LOADING_SEARCHED,
   FETCH_SEARCHED,
 } from '../constants/gamesConstants';
 
@@ -41,9 +40,6 @@ export const loadGames = () => async (dispatch) => {
 
 export const fetchSearch = (game_name) => async (dispatch) => {
   try {
-    dispatch({
-      type: LOADING_SEARCHED,
-    });
     const searchGames = await axios.get(searchGameURL(game_name));
 
     dispatch({
